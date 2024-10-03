@@ -1,9 +1,9 @@
 {
   "name": "@reimujs/aos",
   "version": "0.0.1",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
+  "main": "dist/aos.cjs.js",
+  "module": "dist/aos.esm.js",
+  "browser": "dist/aos.umd.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",

@@ -10,7 +10,7 @@ export default [
       {
         dir: "./dist",
         format: "umd",
-        entryFileNames: "[name].umd.js",
+        entryFileNames: "aos.umd.js",
         name: "AOS",
         sourcemap: false,
         plugins: [terser()],

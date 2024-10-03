@@ -7,13 +7,13 @@ export default [
       {
         dir: 'dist',
         format: 'cjs',
-        entryFileNames: '[name].cjs.js',
+        entryFileNames: 'aos.cjs.js',
         sourcemap: false,
       },
       {
         dir: 'dist',
         format: 'esm',
-        entryFileNames: '[name].esm.js',
+        entryFileNames: 'aos.esm.js',
         sourcemap: false,
       },
     ],
