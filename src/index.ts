@@ -4,8 +4,6 @@ import handleScroll from "./handleScroll";
 import prepare from "./prepare";
 import observe from "./observer";
 
-import "./style/aos.scss";
-
 export interface Options {
   offset: number;
   delay: number;
@@ -104,7 +102,7 @@ class Aos {
     return this.elements;
   }
 
-  init(options: Partial<Options>): void {
+  init(options: Partial<Options> = {}): void {
     this.options = { ...defaultOptions, ...options };
     this.elements = Aos.getElements();
 

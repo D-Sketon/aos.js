@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "module": "commonjs",
+    "module": "ESNext",
     "target": "ESNext",
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
-    "lib": ["dom", "ESNext", "DOM.Iterable"]
+    "lib": ["dom", "ESNext", "DOM.Iterable"],
+    "moduleResolution": "node"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]
