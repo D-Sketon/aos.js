@@ -1,4 +1,5 @@
 import type { ElementNode } from ".";
+import { getElementOffset } from "./container";
 
 const updateClasses = (
   node: HTMLElement,
@@ -41,5 +42,6 @@ const applyClasses = (el: ElementNode, top: number) => {
   }
 };
 
-export default (elements: ElementNode[]) =>
-  elements.forEach((el) => applyClasses(el, window.pageYOffset));
+export default (elements: ElementNode[], container: Window | Element) => {
+  elements.forEach((el) => applyClasses(el, getElementOffset(container)));
+};

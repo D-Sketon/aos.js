@@ -3,6 +3,7 @@ import detect from "./detector";
 import handleScroll from "./handleScroll";
 import prepare from "./prepare";
 import observe from "./observer";
+import { resolveContainer } from "./container";
 
 export interface Options {
   offset: number;
@@ -20,6 +21,7 @@ export interface Options {
   disableMutationObserver: boolean;
   throttleDelay: number;
   debounceDelay: number;
+  container: Window | Element | string;
 }
 
 export interface ElementNode {
@@ -53,12 +55,14 @@ const defaultOptions: Options = {
   disableMutationObserver: false,
   throttleDelay: 99,
   debounceDelay: 50,
+  container: window,
 };
 
 class Aos {
   elements: ElementNode[] = [];
   initialized = false;
   options = defaultOptions;
+  container: Window | Element | null = null;
   observer: MutationObserver | null = null;
 
   scrollHandler: (...args: any[]) => void | null = null;
@@ -68,12 +72,14 @@ class Aos {
     type: "document" | "window";
   } | null = null;
 
-  static getElements(): ElementNode[] {
-    return [...document.querySelectorAll<HTMLElement>("[data-aos]")].map(
-      (node) => ({
-        node,
-      })
-    );
+  static getElements(container: Window | Element): ElementNode[] {
+    return [
+      ...(
+        (container === window ? document : container) as HTMLElement
+      ).querySelectorAll<HTMLElement>("[data-aos]"),
+    ].map((node) => ({
+      node,
+    }));
   }
 
   static isDisabled(
@@ -89,14 +95,15 @@ class Aos {
   }
 
   initializeScroll(): ElementNode[] {
-    this.elements = prepare(this.elements, this.options);
-    handleScroll(this.elements);
+    const { container } = this;
+    this.elements = prepare(this.elements, this.options, container);
+    handleScroll(this.elements, this.container);
 
     this.scrollHandler = throttle(() => {
-      handleScroll(this.elements);
+      handleScroll(this.elements, container);
     }, this.options.throttleDelay);
 
-    window.addEventListener("scroll", this.scrollHandler, {
+    container.addEventListener("scroll", this.scrollHandler, {
       passive: true,
     });
     return this.elements;
@@ -105,7 +112,12 @@ class Aos {
   init(options: Partial<Options> = {}): void {
     this.destroy();
     this.options = { ...defaultOptions, ...options };
-    this.elements = Aos.getElements();
+    const container = resolveContainer(this.options.container);
+    if (!container) {
+      throw `AOS - cannot find the container element. The container option must be an HTMLElement or a CSS Selector.`;
+    }
+    this.elements = Aos.getElements(container);
+    this.container = container;
 
     if (Aos.isDisabled(this.options.disable)) {
       return this.disable();
@@ -164,7 +176,7 @@ class Aos {
   }
 
   refreshHard() {
-    this.elements = Aos.getElements();
+    this.elements = Aos.getElements(this.container);
 
     if (Aos.isDisabled(this.options.disable)) {
       return this.disable();

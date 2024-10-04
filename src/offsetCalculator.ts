@@ -1,13 +1,15 @@
 import getInlineOption from "./getInlineOption";
+import { getElementHeight, getElementOffset } from "./container";
 
-const getOffset = function (el: HTMLElement) {
+const getOffset = function (el: HTMLElement, container: Window | Element) {
   let left = 0;
   let top = 0;
 
   while (el) {
     left += el.offsetLeft - (el.tagName != "BODY" ? el.scrollLeft : 0);
     top += el.offsetTop - (el.tagName != "BODY" ? el.scrollTop : 0);
-    el = el.offsetParent as HTMLElement;
+    el =
+      el.offsetParent === container ? null : (el.offsetParent as HTMLElement);
   }
 
   return {
@@ -19,9 +21,10 @@ const getOffset = function (el: HTMLElement) {
 export const getPositionIn = (
   el: HTMLElement,
   defaultOffset: number,
-  defaultAnchorPlacement: string
+  defaultAnchorPlacement: string,
+  container: Window | Element
 ) => {
-  const windowHeight = window.innerHeight;
+  const containerHeight = getElementHeight(container);
   const anchor = getInlineOption(el, "anchor");
   const inlineAnchorPlacement = getInlineOption(el, "anchor-placement");
   const additionalOffset = Number(
@@ -29,11 +32,16 @@ export const getPositionIn = (
   );
   const anchorPlacement = inlineAnchorPlacement || defaultAnchorPlacement;
 
-  const finalEl = anchor
-    ? (document.querySelector(anchor) as HTMLElement) || el
-    : el;
+  let finalEl = el;
 
-  let triggerPoint = getOffset(finalEl).top - windowHeight;
+  if (anchor) {
+    const queryResult = (
+      (container === window ? document : container) as HTMLElement
+    ).querySelector(anchor);
+    if (queryResult) finalEl = queryResult;
+  }
+
+  let triggerPoint = getOffset(finalEl, container).top - containerHeight;
 
   switch (anchorPlacement) {
     case "top-bottom":
@@ -46,36 +54,45 @@ export const getPositionIn = (
       triggerPoint += finalEl.offsetHeight;
       break;
     case "top-center":
-      triggerPoint += windowHeight / 2;
+      triggerPoint += containerHeight / 2;
       break;
     case "center-center":
-      triggerPoint += windowHeight / 2 + finalEl.offsetHeight / 2;
+      triggerPoint += containerHeight / 2 + finalEl.offsetHeight / 2;
       break;
     case "bottom-center":
-      triggerPoint += windowHeight / 2 + finalEl.offsetHeight;
+      triggerPoint += containerHeight / 2 + finalEl.offsetHeight;
       break;
     case "top-top":
-      triggerPoint += windowHeight;
+      triggerPoint += containerHeight;
       break;
     case "bottom-top":
-      triggerPoint += windowHeight + finalEl.offsetHeight;
+      triggerPoint += containerHeight + finalEl.offsetHeight;
       break;
     case "center-top":
-      triggerPoint += windowHeight + finalEl.offsetHeight / 2;
+      triggerPoint += containerHeight + finalEl.offsetHeight / 2;
       break;
   }
 
   return triggerPoint + additionalOffset;
 };
 
-export const getPositionOut = (el: HTMLElement, defaultOffset: number) => {
+export const getPositionOut = (
+  el: HTMLElement,
+  defaultOffset: number,
+  container: Window | Element
+) => {
   const anchor = getInlineOption(el, "anchor");
   const additionalOffset = getInlineOption(el, "offset", defaultOffset);
-  const finalEl = anchor
-    ? (document.querySelector(anchor) as HTMLElement) || el
-    : el;
+  let finalEl = el;
 
-  const elementOffsetTop = getOffset(finalEl).top;
+  if (anchor) {
+    const queryResult = (
+      (container === window ? document : container) as HTMLElement
+    ).querySelector(anchor);
+    if (queryResult) finalEl = queryResult;
+  }
+
+  const elementOffsetTop = getOffset(finalEl, container).top;
 
   return elementOffsetTop + finalEl.offsetHeight - additionalOffset;
 };

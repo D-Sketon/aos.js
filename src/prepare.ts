@@ -4,7 +4,8 @@ import type { Options, ElementNode } from ".";
 
 export default function prepare(
   elements: ElementNode[],
-  options: Options
+  options: Options,
+  container: Window | Element
 ): ElementNode[] {
   elements.forEach((element) => {
     const { node } = element;
@@ -26,8 +27,8 @@ export default function prepare(
     }
 
     element.position = {
-      in: getPositionIn(node, options.offset, options.anchorPlacement),
-      out: mirror && getPositionOut(node, options.offset),
+      in: getPositionIn(node, options.offset, options.anchorPlacement, container),
+      out: mirror && getPositionOut(node, options.offset, container),
     };
 
     element.options = {

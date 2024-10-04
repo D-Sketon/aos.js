@@ -45,7 +45,10 @@ AOS.init({
   easing: "ease", // default easing for AOS animations
   once: false, // whether animation should happen only once - while scrolling down
   mirror: false, // whether elements should animate out while scrolling past them
-  anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+  anchorPlacement: "top-bottom", // defines which position of the element regarding to window/container should trigger the animation
+
+  // Additional setting:
+  container: window, // AOS Container, accepts CSS Selector (e.g. ".my-awesome-container") or HTMLElement
 });
 ```
 
@@ -55,9 +58,20 @@ So what's the difference between aos and @reimujs/aos?
 
 
 - Typescript friendly
-- Smaller package size (from 14.7KB + 26.1KB to 8.1KB + 24.5KB)
+- Smaller package size (from 14.7KB + 26.1KB to 8.66KB + 24.5KB)
 - Only support modern browsers
+- Support additional settings
 - Support additional API
+
+### Additional settings
+
+#### container
+
+merge from [aos#223](https://github.com/michalsnik/aos/issues/223), you can set the container of AOS, accepts CSS Selector (e.g. ".my-awesome-container") or HTMLElement.
+
+```typescript
+container: window, // AOS Container, accepts CSS Selector (e.g. ".my-awesome-container") or HTMLElement
+```
 
 ### Additional API
 
