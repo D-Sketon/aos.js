@@ -1,5 +1,7 @@
 # aos.js
 
+![NPM License](https://img.shields.io/npm/l/%40reimujs%2Faos) ![NPM Version](https://img.shields.io/npm/v/%40reimujs%2Faos) ![npm bundle size](https://img.shields.io/bundlephobia/min/%40reimujs%2Faos)
+
 Animate on scroll library.
 
 Rewrite [aos](https://github.com/michalsnik/aos) using typescript.
