@@ -103,6 +103,7 @@ class Aos {
   }
 
   init(options: Partial<Options> = {}): void {
+    this.destroy();
     this.options = { ...defaultOptions, ...options };
     this.elements = Aos.getElements();
 
