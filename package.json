@@ -1,6 +1,6 @@
 {
   "name": "@reimujs/aos",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "dist/aos.cjs.js",
   "module": "dist/aos.esm.js",
   "browser": "dist/aos.umd.js",

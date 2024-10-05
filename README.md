@@ -28,6 +28,7 @@ Just same as aos@next. For more information, please visit [aos-how-to-use-it](ht
 
 ```typescript
 import AOS from "@reimujs/aos";
+import "@reimujs/aos/dist/aos.css";
 
 AOS.init({
   // Global settings:
@@ -54,10 +55,73 @@ AOS.init({
 });
 ```
 
+### Next.js
+
+```typescript
+"use client";
+import { useEffect } from "react";
+import "@reimujs/aos/dist/aos.css";
+
+export default function Page() {
+  useEffect(() => {
+    import("@reimujs/aos").then(({ default: AOS }) => {
+      AOS.init();
+    });
+  }, []);
+}
+```
+
+### Nuxt
+
+```html
+<script lang="ts" setup>
+import { onMounted } from "vue";
+import "@reimujs/aos/dist/aos.css";
+
+onMounted(() => {
+  import("@reimujs/aos").then(({ default: AOS }) => {
+    AOS.init();
+  });
+});
+</script>
+```
+
+### Augular
+
+```typescript
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import '@reimujs/aos/dist/aos.css';
+
+@Component({})
+export class AppComponent {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      import("@reimujs/aos").then(({ default: AOS }) => {
+        AOS.init();
+      });
+    }
+  }
+}
+```
+
+### Astro
+
+```html
+---
+import "@reimujs/aos/dist/aos.css";
+---
+<script>
+  import AOS from "@reimujs/aos";
+  AOS.init();
+</script>
+```
+
 ## Difference
 
 So what's the difference between aos and @reimujs/aos?
-
 
 - Typescript friendly
 - Smaller package size (from 14.7KB + 26.1KB to 6.9KB + 25.2KB)
@@ -85,6 +149,6 @@ function destroy(): void;
 
 Remove all event listeners and disconnect MutationObserver.
 
-
 ## License
+
 MIT
