@@ -5,15 +5,62 @@ import prepare from "./prepare";
 import observe from "./observer";
 import { resolveContainer } from "./container";
 
+type AosEventType = "aos:in" | "aos:out";
+interface AosEvent extends Event {
+  detail: Element;
+}
+declare global {
+  interface Document {
+    addEventListener(
+      type: AosEventType,
+      listener: (event: AosEvent) => void,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+  }
+}
+
+type easingOptions =
+  | "linear"
+  | "ease"
+  | "ease-in"
+  | "ease-out"
+  | "ease-in-out"
+  | "ease-in-back"
+  | "ease-out-back"
+  | "ease-in-out-back"
+  | "ease-in-sine"
+  | "ease-out-sine"
+  | "ease-in-out-sine"
+  | "ease-in-quad"
+  | "ease-out-quad"
+  | "ease-in-out-quad"
+  | "ease-in-cubic"
+  | "ease-out-cubic"
+  | "ease-in-out-cubic"
+  | "ease-in-quart"
+  | "ease-out-quart"
+  | "ease-in-out-quart";
+
+type anchorPlacementOptions =
+  | "top-bottom"
+  | "top-center"
+  | "top-top"
+  | "center-bottom"
+  | "center-center"
+  | "center-top"
+  | "bottom-bottom"
+  | "bottom-center"
+  | "bottom-top";
+
 export interface Options {
   offset: number;
   delay: number;
-  easing: string;
+  easing: easingOptions;
   duration: number;
   disable: boolean | "mobile" | "phone" | "tablet" | (() => boolean);
   once: boolean;
   mirror: boolean;
-  anchorPlacement: string;
+  anchorPlacement: anchorPlacementOptions;
   startEvent: string;
   animatedClassName: string;
   initClassName: string;
