@@ -1,4 +1,4 @@
-import { throttle, debounce } from "es-toolkit";
+import { throttle, debounce } from "./utils";
 import detect from "./detector";
 import handleScroll from "./handleScroll";
 import prepare from "./prepare";

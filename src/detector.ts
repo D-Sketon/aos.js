@@ -2,12 +2,8 @@ const phoneRe =
   /iphone|ipod|android.*mobile|windows phone|blackberry|opera mini|mobile|phone/i;
 const tabletRe = /ipad|android(?!.*mobile)|tablet|kindle/i;
 
-function ua() {
-  return navigator.userAgent;
-}
-
 class Detector {
-  userAgent = ua();
+  userAgent = navigator.userAgent;
 
   phone() {
     return phoneRe.test(this.userAgent);
