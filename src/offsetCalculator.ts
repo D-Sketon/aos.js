@@ -1,5 +1,5 @@
 import getInlineOption from "./getInlineOption";
-import { getElementHeight, getElementOffset } from "./container";
+import { getElementHeight } from "./container";
 
 const getOffset = function (el: HTMLElement, container: Window | Element) {
   let left = 0;

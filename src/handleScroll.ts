@@ -1,12 +1,6 @@
 import type { ElementNode } from ".";
 import { getElementOffset } from "./container";
 
-const updateClasses = (
-  node: HTMLElement,
-  classes?: string[],
-  action: "add" | "remove" = "add"
-) => classes?.forEach((className) => node.classList[action](className));
-
 const fireEvent = (eventName: string, data: any) =>
   document.dispatchEvent(
     new CustomEvent(eventName, {
@@ -20,7 +14,7 @@ const toggleClasses = (el: ElementNode, isVisible: boolean) => {
   const eventName = isVisible ? "aos:in" : "aos:out";
   const action = isVisible ? "add" : "remove";
 
-  updateClasses(node, options.animatedClassNames, action);
+  options.animatedClassNames?.forEach((className) => node.classList[action](className));
   fireEvent(eventName, node);
 
   if (options.id) {
