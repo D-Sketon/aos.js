@@ -1,6 +1,6 @@
 {
   "name": "@reimujs/aos",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/aos.cjs.js",
   "module": "dist/aos.esm.js",
   "browser": "dist/aos.umd.js",
@@ -14,12 +14,12 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "rollup": "^4.32.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "rollup": "^4.44.2",
     "rollup-plugin-scss": "^3.0.0",
-    "sass": "^1.83.4",
+    "sass": "^1.89.2",
     "tslib": "^2.8.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.3"
   },
   "repository": {
     "type": "git",

@@ -27,7 +27,7 @@ or
 So what's the difference between aos and @reimujs/aos?
 
 - Typescript friendly
-- Smaller package size (from 14.7KB + 26.1KB to 6.5KB + 25.2KB)
+- Smaller package size (from 14.7KB + 26.1KB to 6.15KB + 23.3KB)
 - Only support modern browsers
 - Support additional settings
 - Support additional API
