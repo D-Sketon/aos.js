@@ -96,10 +96,6 @@ h2 {
   letter-spacing: -0.03em;
 }
 
-h2::after {
-  display: none;
-}
-
 h2 span {
   color: var(--primary-color);
 }
@@ -109,6 +105,10 @@ h2 span {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  /* Prevent animations from causing horizontal scroll/layout shifts */
+  overflow: hidden;
+  padding: 10px;
+  margin: -10px;
 }
 
 .card {
@@ -120,7 +120,6 @@ h2 span {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: none;
 }
 
 .card:hover {
@@ -177,10 +176,6 @@ h2 span {
   left: 50%;
 }
 
-.left::before, .right::before {
-  display: none;
-}
-
 .right::after {
   left: -10px;
 }
@@ -191,7 +186,6 @@ h2 span {
   position: relative;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  box-shadow: none;
 }
 
 .content h3 {
@@ -227,10 +221,6 @@ h2 span {
   
   .timeline-item::after {
     left: 21px;
-  }
-  
-  .timeline-item::before {
-    display: none;
   }
 
   .right {
@@ -294,7 +284,6 @@ footer a {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: none;
 }
 
 .btn:hover {
@@ -311,6 +300,48 @@ footer a {
 /* Utility Classes */
 .two-col {
   grid-template-columns: 1fr 1fr;
+}
+
+.header-subtitle {
+  font-size: 1rem;
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+.instruction-block {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.instruction-label {
+  margin-bottom: 10px;
+  color: var(--text-muted);
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* Animate.css Demo Specifics */
+.animate-demo [data-aos] {
+  visibility: hidden;
+}
+.animate-demo [data-aos].animate__animated {
+  visibility: visible;
 }
 
 /* Code Blocks */
@@ -337,18 +368,15 @@ code {
 }
 
 pre {
-  /* background-color: #111; Removed to let Prism handle or use the override above */
   padding: 20px !important; /* Ensure padding */
   border-radius: 8px;
   overflow-x: auto;
   margin: 20px 0;
-  /* border: 1px solid var(--border-color); */
 }
 
 pre code {
   background-color: transparent;
   padding: 0;
-  /* color: #ccc; */
   font-size: 0.9rem;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
 }

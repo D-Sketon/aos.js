@@ -11,30 +11,8 @@
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
     <link rel="stylesheet" href="style.css" />
-    <style>
-      /* Override AOS default behavior to use Animate.css classes */
-      [data-aos] {
-        visibility: hidden;
-      }
-      [data-aos].animate__animated {
-        visibility: visible;
-      }
-
-      /* Fix for mobile scroll jumping issue */
-      html, body {
-        overflow-x: hidden;
-        width: 100%;
-      }
-
-      /* Prevent animations from causing horizontal scroll/layout shifts */
-      .features-grid {
-        overflow: hidden;
-        padding: 10px; /* Add some padding to prevent clipping shadows */
-        margin: -10px; /* Compensate for padding */
-      }
-    </style>
   </head>
-  <body>
+  <body class="animate-demo">
     <header>
       <nav class="top-nav">
         <a href="index.html">Main Demo</a>
@@ -49,12 +27,12 @@
     <div class="container">
       <section>
         <h2 data-aos="animate__fadeInUp">Animate.css <span>Integration</span></h2>
-        <div style="max-width: 800px; margin: 0 auto 40px auto;">
-          <p style="margin-bottom: 10px; color: var(--text-muted);">1. Include Animate.css and AOS:</p>
+        <div class="instruction-block mb-40">
+          <p class="instruction-label">1. Include Animate.css and AOS:</p>
           <pre><code class="language-html">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" /&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@reimujs/aos@latest/dist/aos.css" /&gt;</code></pre>
           
-          <p style="margin-bottom: 10px; margin-top: 20px; color: var(--text-muted);">2. Initialize AOS with custom settings:</p>
+          <p class="instruction-label mt-20">2. Initialize AOS with custom settings:</p>
           <pre><code class="language-javascript">AOS.init({
   useClassNames: true,
   initClassName: false,

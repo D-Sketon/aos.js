@@ -22,7 +22,7 @@
         data-aos="fade-up"
         data-aos-delay="400"
         data-aos-duration="1000"
-        style="font-size: 1rem; margin-top: 20px; opacity: 0.8"
+        class="header-subtitle"
       >
         Scroll down to see the magic ✨
       </p>
@@ -32,8 +32,8 @@
       
       <section>
         <h2 data-aos="fade-up">Getting <span>Started</span></h2>
-        <div style="max-width: 800px; margin: 0 auto;">
-          <p style="margin-bottom: 10px; color: var(--text-muted);">1. Initialize AOS:</p>
+        <div class="instruction-block">
+          <p class="instruction-label">1. Initialize AOS:</p>
           <pre data-aos="fade-up"><code class="language-javascript">AOS.init();
 
 // You can also pass an optional settings object
@@ -315,7 +315,7 @@ AOS.init({
 
       <section>
         <h2 data-aos="fade-up">Offset <span>Examples</span></h2>
-        <p style="text-align: center; margin-bottom: 30px">
+        <p class="section-intro">
           Different offsets trigger animations at different scroll positions.
         </p>
         <div class="features-grid">
@@ -355,7 +355,7 @@ AOS.init({
 
       <section>
         <h2 data-aos="fade-up">Async <span>Content</span></h2>
-        <p style="text-align: center; margin-bottom: 30px">
+        <p class="section-intro">
           AOS observes the DOM for new elements.
         </p>
         <div id="async-container" class="features-grid">
@@ -364,7 +364,7 @@ AOS.init({
             <p>I was here from the start.</p>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 30px">
+        <div class="btn-wrapper">
           <button id="load-more" class="btn">Load More Items</button>
         </div>
       </section>
