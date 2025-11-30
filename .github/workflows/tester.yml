@@ -17,6 +17,7 @@ on:
       - "test/**"
       - "package.json"
       - "tsconfig.json"
+      - "vitest.config.ts"
       - ".github/workflows/tester.yml"
 
 permissions:
