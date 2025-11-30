@@ -313,6 +313,65 @@ footer a {
   grid-template-columns: 1fr 1fr;
 }
 
+/* Code Blocks */
+/* Prism.js overrides */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #111 !important;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+code {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  color: var(--primary-color);
+  font-size: 0.9em;
+}
+
+/* Override for Prism inline code if needed, or let it be */
+:not(pre) > code[class*="language-"] {
+  padding: 2px 6px;
+}
+
+pre {
+  /* background-color: #111; Removed to let Prism handle or use the override above */
+  padding: 20px !important; /* Ensure padding */
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 20px 0;
+  /* border: 1px solid var(--border-color); */
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  /* color: #ccc; */
+  font-size: 0.9rem;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+}
+
+.card code {
+  display: block;
+  margin-top: 10px;
+  background-color: #111; /* Match Prism dark theme roughly */
+  padding: 10px;
+  border-radius: 6px;
+  text-align: left; /* Code usually looks better left-aligned */
+  font-size: 0.85rem;
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+}
+
+/* Force Prism colors on card codes if they get the class */
+.card code.language-html {
+  background-color: #111 !important;
+  text-shadow: none !important;
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   header h1 {

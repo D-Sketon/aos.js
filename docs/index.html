@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AOS - Animate On Scroll Library</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@reimujs/aos@0.1.2/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -28,50 +29,98 @@
     </header>
 
     <div class="container">
+      
+      <section>
+        <h2 data-aos="fade-up">Getting <span>Started</span></h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+          <p style="margin-bottom: 10px; color: var(--text-muted);">1. Initialize AOS:</p>
+          <pre data-aos="fade-up"><code class="language-javascript">AOS.init();
+
+// You can also pass an optional settings object
+// below listed default settings
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
+
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});</code></pre>
+        </div>
+      </section>
+
       <section>
         <h2 data-aos="fade-up">Fade <span>Animations</span></h2>
         <div class="features-grid">
           <div class="card" data-aos="fade-up">
             <h3>Fade Up</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Element fades in while moving upwards.
             </p>
+            <code class="language-html">&lt;div data-aos="fade-up"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="fade-down">
             <h3>Fade Down</h3>
             <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Element fades in while moving downwards.
             </p>
+            <code class="language-html">&lt;div data-aos="fade-down"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="fade-right">
             <h3>Fade Right</h3>
             <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
+              Element fades in while moving to the right.
             </p>
+            <code class="language-html">&lt;div data-aos="fade-right"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="fade-left">
             <h3>Fade Left</h3>
             <p>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum.
+              Element fades in while moving to the left.
             </p>
+            <code class="language-html">&lt;div data-aos="fade-left"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="fade-up-right">
             <h3>Fade Up Right</h3>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium.
+              Diagonal movement towards top-right.
             </p>
+            <code class="language-html">&lt;div data-aos="fade-up-right"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="fade-up-left">
             <h3>Fade Up Left</h3>
             <p>
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-              aut fugit, sed quia consequuntur.
+              Diagonal movement towards top-left.
             </p>
+            <code class="language-html">&lt;div data-aos="fade-up-left"&gt;&lt;/div&gt;</code>
+          </div>
+          <div class="card" data-aos="fade-down-right">
+            <h3>Fade Down Right</h3>
+            <p>
+              Diagonal movement towards bottom-right.
+            </p>
+            <code class="language-html">&lt;div data-aos="fade-down-right"&gt;&lt;/div&gt;</code>
+          </div>
+          <div class="card" data-aos="fade-down-left">
+            <h3>Fade Down Left</h3>
+            <p>
+              Diagonal movement towards bottom-left.
+            </p>
+            <code class="language-html">&lt;div data-aos="fade-down-left"&gt;&lt;/div&gt;</code>
           </div>
         </div>
       </section>
@@ -82,44 +131,44 @@
           <div class="card" data-aos="zoom-in">
             <h3>Zoom In</h3>
             <p>
-              Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-              consectetur, adipisci velit.
+              Element zooms in from smaller size.
             </p>
+            <code class="language-html">&lt;div data-aos="zoom-in"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="zoom-in-up">
             <h3>Zoom In Up</h3>
             <p>
-              Sed quia non numquam eius modi tempora incidunt ut labore et
-              dolore magnam aliquam quaerat voluptatem.
+              Element zooms in while moving upwards.
             </p>
+            <code class="language-html">&lt;div data-aos="zoom-in-up"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="zoom-in-down">
             <h3>Zoom In Down</h3>
             <p>
-              Ut enim ad minima veniam, quis nostrum exercitationem ullam
-              corporis suscipit laboriosam.
+              Element zooms in while moving downwards.
             </p>
+            <code class="language-html">&lt;div data-aos="zoom-in-down"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="zoom-out">
             <h3>Zoom Out</h3>
             <p>
-              Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-              reprehenderit qui in ea voluptate.
+              Element zooms out from larger size.
             </p>
+            <code class="language-html">&lt;div data-aos="zoom-out"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="zoom-out-left">
             <h3>Zoom Out Left</h3>
             <p>
-              Velit esse quam nihil molestiae consequatur, vel illum qui dolorem
-              eum fugiat quo voluptas nulla pariatur?
+              Element zooms out while moving left.
             </p>
+            <code class="language-html">&lt;div data-aos="zoom-out-left"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="zoom-out-right">
             <h3>Zoom Out Right</h3>
             <p>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum.
+              Element zooms out while moving right.
             </p>
+            <code class="language-html">&lt;div data-aos="zoom-out-right"&gt;&lt;/div&gt;</code>
           </div>
         </div>
       </section>
@@ -130,30 +179,30 @@
           <div class="card" data-aos="flip-left">
             <h3>Flip Left</h3>
             <p>
-              Deleniti atque corrupti quos dolores et quas molestias excepturi
-              sint occaecati cupiditate non provident.
+              Element flips along the Y axis (left).
             </p>
+            <code class="language-html">&lt;div data-aos="flip-left"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="flip-right">
             <h3>Flip Right</h3>
             <p>
-              Similique sunt in culpa qui officia deserunt mollitia animi, id
-              est laborum et dolorum fuga.
+              Element flips along the Y axis (right).
             </p>
+            <code class="language-html">&lt;div data-aos="flip-right"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="flip-up">
             <h3>Flip Up</h3>
             <p>
-              Et harum quidem rerum facilis est et expedita distinctio. Nam
-              libero tempore, cum soluta nobis est eligendi.
+              Element flips along the X axis (up).
             </p>
+            <code class="language-html">&lt;div data-aos="flip-up"&gt;&lt;/div&gt;</code>
           </div>
           <div class="card" data-aos="flip-down">
             <h3>Flip Down</h3>
             <p>
-              Optio cumque nihil impedit quo minus id quod maxime placeat facere
-              possimus, omnis voluptas assumenda est.
+              Element flips along the X axis (down).
             </p>
+            <code class="language-html">&lt;div data-aos="flip-down"&gt;&lt;/div&gt;</code>
           </div>
         </div>
       </section>
@@ -214,6 +263,7 @@
           >
             <h3>Top-Bottom</h3>
             <p>Triggers when top of element hits bottom of viewport.</p>
+            <code class="language-html">data-aos-anchor-placement="top-bottom"</code>
           </div>
           <div
             class="card"
@@ -222,6 +272,7 @@
           >
             <h3>Center-Bottom</h3>
             <p>Triggers when center of element hits bottom of viewport.</p>
+            <code class="language-html">data-aos-anchor-placement="center-bottom"</code>
           </div>
           <div
             class="card"
@@ -230,6 +281,7 @@
           >
             <h3>Bottom-Bottom</h3>
             <p>Triggers when bottom of element hits bottom of viewport.</p>
+            <code class="language-html">data-aos-anchor-placement="bottom-bottom"</code>
           </div>
           <div
             class="card"
@@ -238,6 +290,7 @@
           >
             <h3>Top-Center</h3>
             <p>Triggers when top of element hits center of viewport.</p>
+            <code class="language-html">data-aos-anchor-placement="top-center"</code>
           </div>
           <div
             class="card"
@@ -246,6 +299,7 @@
           >
             <h3>Center-Center</h3>
             <p>Triggers when center of element hits center of viewport.</p>
+            <code class="language-html">data-aos-anchor-placement="center-center"</code>
           </div>
           <div
             class="card"
@@ -254,6 +308,7 @@
           >
             <h3>Bottom-Center</h3>
             <p>Triggers when bottom of element hits center of viewport.</p>
+            <code class="language-html">data-aos-anchor-placement="bottom-center"</code>
           </div>
         </div>
       </section>
@@ -267,14 +322,17 @@
           <div class="card" data-aos="fade-up" data-aos-offset="-200">
             <h3>Offset -200px</h3>
             <p>Triggers earlier (before element reaches trigger point).</p>
+            <code class="language-html">data-aos-offset="-200"</code>
           </div>
           <div class="card" data-aos="fade-up" data-aos-offset="0">
             <h3>Offset 0px</h3>
             <p>Standard trigger point.</p>
+            <code class="language-html">data-aos-offset="0"</code>
           </div>
           <div class="card" data-aos="fade-up" data-aos-offset="300">
             <h3>Offset 300px</h3>
             <p>Triggers later (element must be 300px into view).</p>
+            <code class="language-html">data-aos-offset="300"</code>
           </div>
         </div>
       </section>
@@ -285,10 +343,12 @@
           <div class="card" data-aos="fade-up">
             <h3>Repeat Animation</h3>
             <p>Scroll up and down. I will animate every time.</p>
+            <code class="language-html">data-aos-once="false"</code>
           </div>
           <div class="card" data-aos="fade-up" data-aos-once="true">
             <h3>Run Once</h3>
             <p>Scroll up and down. I will only animate once.</p>
+            <code class="language-html">data-aos-once="true"</code>
           </div>
         </div>
       </section>
@@ -318,6 +378,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@reimujs/aos@0.1.2/dist/aos.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
     <script>
       AOS.init({
         offset: 200,
