@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AOS - Animate.css Integration</title>
+    <link rel="stylesheet" href="../dist/aos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Override AOS default behavior to use Animate.css classes */
+      [data-aos] {
+        visibility: hidden;
+      }
+      [data-aos].animate__animated {
+        visibility: visible;
+      }
+
+      /* Fix for mobile scroll jumping issue */
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      /* Prevent animations from causing horizontal scroll/layout shifts */
+      .features-grid {
+        overflow: hidden;
+        padding: 10px; /* Add some padding to prevent clipping shadows */
+        margin: -10px; /* Compensate for padding */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav">
+        <a href="index.html">Main Demo</a>
+        <a href="animate.html" class="active">Animate.css Demo</a>
+      </nav>
+      <h1 class="animate__animated animate__fadeInDown">AOS + Animate.css</h1>
+      <p class="animate__animated animate__fadeInUp animate__delay-1s">
+        Using external CSS libraries with AOS
+      </p>
+    </header>
+
+    <div class="container">
+      <section>
+        <h2 data-aos="animate__fadeInUp">Animate.css <span>Integration</span></h2>
+        <p style="text-align: center; margin-bottom: 30px">
+          AOS can trigger animations from external libraries like
+          Animate.css.<br />
+          Just set <code>useClassNames: true</code> and map your animations!
+        </p>
+
+        <div class="features-grid">
+          <div class="card" data-aos="animate__bounceInLeft">
+            <h3>Bounce In Left</h3>
+            <p>data-aos="animate__bounceInLeft"</p>
+          </div>
+          <div class="card" data-aos="animate__bounceInRight">
+            <h3>Bounce In Right</h3>
+            <p>data-aos="animate__bounceInRight"</p>
+          </div>
+          <div class="card" data-aos="animate__flipInX">
+            <h3>Flip In X</h3>
+            <p>data-aos="animate__flipInX"</p>
+          </div>
+          <div class="card" data-aos="animate__flipInY">
+            <h3>Flip In Y</h3>
+            <p>data-aos="animate__flipInY"</p>
+          </div>
+          <div class="card" data-aos="animate__rotateIn">
+            <h3>Rotate In</h3>
+            <p>data-aos="animate__rotateIn"</p>
+          </div>
+          <div class="card" data-aos="animate__zoomIn">
+            <h3>Zoom In</h3>
+            <p>data-aos="animate__zoomIn"</p>
+          </div>
+          <div class="card" data-aos="animate__jackInTheBox">
+            <h3>Jack In The Box</h3>
+            <p>data-aos="animate__jackInTheBox"</p>
+          </div>
+          <div class="card" data-aos="animate__rollIn">
+            <h3>Roll In</h3>
+            <p>data-aos="animate__rollIn"</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>
+        Created with ❤️ using
+        <a href="https://github.com/D-Sketon/aos.js">AOS</a>
+      </p>
+    </footer>
+
+    <script src="../dist/aos.umd.js"></script>
+    <script>
+      AOS.init({
+        useClassNames: true,
+        initClassName: false,
+        animatedClassName: "animate__animated",
+      });
+    </script>
+  </body>
+</html>

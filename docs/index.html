@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AOS - Animate On Scroll Library</title>
+    <link rel="stylesheet" href="../dist/aos.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav">
+        <a href="index.html" class="active">Main Demo</a>
+        <a href="animate.html">Animate.css Demo</a>
+      </nav>
+      <h1 data-aos="fade-down" data-aos-duration="1000">AOS</h1>
+      <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        Animate On Scroll Library
+      </p>
+      <p
+        data-aos="fade-up"
+        data-aos-delay="400"
+        data-aos-duration="1000"
+        style="font-size: 1rem; margin-top: 20px; opacity: 0.8"
+      >
+        Scroll down to see the magic ✨
+      </p>
+    </header>
+
+    <div class="container">
+      <section>
+        <h2 data-aos="fade-up">Fade <span>Animations</span></h2>
+        <div class="features-grid">
+          <div class="card" data-aos="fade-up">
+            <h3>Fade Up</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div class="card" data-aos="fade-down">
+            <h3>Fade Down</h3>
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div class="card" data-aos="fade-right">
+            <h3>Fade Right</h3>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+          <div class="card" data-aos="fade-left">
+            <h3>Fade Left</h3>
+            <p>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="card" data-aos="fade-up-right">
+            <h3>Fade Up Right</h3>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium.
+            </p>
+          </div>
+          <div class="card" data-aos="fade-up-left">
+            <h3>Fade Up Left</h3>
+            <p>
+              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+              aut fugit, sed quia consequuntur.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-aos="zoom-in">Zoom <span>Animations</span></h2>
+        <div class="features-grid">
+          <div class="card" data-aos="zoom-in">
+            <h3>Zoom In</h3>
+            <p>
+              Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+              consectetur, adipisci velit.
+            </p>
+          </div>
+          <div class="card" data-aos="zoom-in-up">
+            <h3>Zoom In Up</h3>
+            <p>
+              Sed quia non numquam eius modi tempora incidunt ut labore et
+              dolore magnam aliquam quaerat voluptatem.
+            </p>
+          </div>
+          <div class="card" data-aos="zoom-in-down">
+            <h3>Zoom In Down</h3>
+            <p>
+              Ut enim ad minima veniam, quis nostrum exercitationem ullam
+              corporis suscipit laboriosam.
+            </p>
+          </div>
+          <div class="card" data-aos="zoom-out">
+            <h3>Zoom Out</h3>
+            <p>
+              Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
+              reprehenderit qui in ea voluptate.
+            </p>
+          </div>
+          <div class="card" data-aos="zoom-out-left">
+            <h3>Zoom Out Left</h3>
+            <p>
+              Velit esse quam nihil molestiae consequatur, vel illum qui dolorem
+              eum fugiat quo voluptas nulla pariatur?
+            </p>
+          </div>
+          <div class="card" data-aos="zoom-out-right">
+            <h3>Zoom Out Right</h3>
+            <p>
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis praesentium voluptatum.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-aos="flip-up">Flip <span>Animations</span></h2>
+        <div class="features-grid">
+          <div class="card" data-aos="flip-left">
+            <h3>Flip Left</h3>
+            <p>
+              Deleniti atque corrupti quos dolores et quas molestias excepturi
+              sint occaecati cupiditate non provident.
+            </p>
+          </div>
+          <div class="card" data-aos="flip-right">
+            <h3>Flip Right</h3>
+            <p>
+              Similique sunt in culpa qui officia deserunt mollitia animi, id
+              est laborum et dolorum fuga.
+            </p>
+          </div>
+          <div class="card" data-aos="flip-up">
+            <h3>Flip Up</h3>
+            <p>
+              Et harum quidem rerum facilis est et expedita distinctio. Nam
+              libero tempore, cum soluta nobis est eligendi.
+            </p>
+          </div>
+          <div class="card" data-aos="flip-down">
+            <h3>Flip Down</h3>
+            <p>
+              Optio cumque nihil impedit quo minus id quod maxime placeat facere
+              possimus, omnis voluptas assumenda est.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-aos="fade-up">Timeline <span>Example</span></h2>
+        <div class="timeline">
+          <div class="timeline-item left" data-aos="fade-right">
+            <div class="content">
+              <h3>2018</h3>
+              <p>Project Started. Initial concept and design phase.</p>
+            </div>
+          </div>
+          <div class="timeline-item right" data-aos="fade-left">
+            <div class="content">
+              <h3>2019</h3>
+              <p>
+                First Prototype. Testing core functionalities and user feedback.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item left" data-aos="fade-right">
+            <div class="content">
+              <h3>2020</h3>
+              <p>
+                Beta Launch. Opened to a limited number of users for stress
+                testing.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item right" data-aos="fade-left">
+            <div class="content">
+              <h3>2021</h3>
+              <p>
+                Official Release. Available to the public with full feature set.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item left" data-aos="fade-right">
+            <div class="content">
+              <h3>2022</h3>
+              <p>
+                Major Update. Introduced new features and performance
+                improvements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-aos="fade-up">Anchor <span>Placement</span></h2>
+        <div class="features-grid">
+          <div
+            class="card"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+          >
+            <h3>Top-Bottom</h3>
+            <p>Triggers when top of element hits bottom of viewport.</p>
+          </div>
+          <div
+            class="card"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+          >
+            <h3>Center-Bottom</h3>
+            <p>Triggers when center of element hits bottom of viewport.</p>
+          </div>
+          <div
+            class="card"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+          >
+            <h3>Bottom-Bottom</h3>
+            <p>Triggers when bottom of element hits bottom of viewport.</p>
+          </div>
+          <div
+            class="card"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-center"
+          >
+            <h3>Top-Center</h3>
+            <p>Triggers when top of element hits center of viewport.</p>
+          </div>
+          <div
+            class="card"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-center"
+          >
+            <h3>Center-Center</h3>
+            <p>Triggers when center of element hits center of viewport.</p>
+          </div>
+          <div
+            class="card"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-center"
+          >
+            <h3>Bottom-Center</h3>
+            <p>Triggers when bottom of element hits center of viewport.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-aos="fade-up">Offset <span>Examples</span></h2>
+        <p style="text-align: center; margin-bottom: 30px">
+          Different offsets trigger animations at different scroll positions.
+        </p>
+        <div class="features-grid">
+          <div class="card" data-aos="fade-up" data-aos-offset="-200">
+            <h3>Offset -200px</h3>
+            <p>Triggers earlier (before element reaches trigger point).</p>
+          </div>
+          <div class="card" data-aos="fade-up" data-aos-offset="0">
+            <h3>Offset 0px</h3>
+            <p>Standard trigger point.</p>
+          </div>
+          <div class="card" data-aos="fade-up" data-aos-offset="300">
+            <h3>Offset 300px</h3>
+            <p>Triggers later (element must be 300px into view).</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-aos="fade-up">Once <span>vs</span> Repeat</h2>
+        <div class="features-grid two-col">
+          <div class="card" data-aos="fade-up">
+            <h3>Repeat Animation</h3>
+            <p>Scroll up and down. I will animate every time.</p>
+          </div>
+          <div class="card" data-aos="fade-up" data-aos-once="true">
+            <h3>Run Once</h3>
+            <p>Scroll up and down. I will only animate once.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-aos="fade-up">Async <span>Content</span></h2>
+        <p style="text-align: center; margin-bottom: 30px">
+          AOS observes the DOM for new elements.
+        </p>
+        <div id="async-container" class="features-grid">
+          <div class="card" data-aos="zoom-in">
+            <h3>Initial Item</h3>
+            <p>I was here from the start.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px">
+          <button id="load-more" class="btn">Load More Items</button>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p data-aos="fade-in" data-aos-offset="0">
+        Created with ❤️ using
+        <a href="https://github.com/D-Sketon/aos.js">AOS</a>
+      </p>
+    </footer>
+
+    <script src="../dist/aos.umd.js"></script>
+    <script>
+      AOS.init({
+        offset: 200,
+        duration: 600,
+        easing: "ease-in-sine",
+        delay: 100,
+      });
+
+      // Async Example
+      const asyncContainer = document.getElementById("async-container");
+      const loadMoreBtn = document.getElementById("load-more");
+      let count = 1;
+
+      loadMoreBtn.addEventListener("click", () => {
+        const itemsToAdd = 3;
+        for (let i = 0; i < itemsToAdd; i++) {
+          const div = document.createElement("div");
+          div.className = "card";
+          div.setAttribute("data-aos", "zoom-in");
+          div.innerHTML = `
+          <h3>New Item ${count++}</h3>
+          <p>I was added dynamically!</p>
+        `;
+          asyncContainer.appendChild(div);
+        }
+      });
+    </script>
+  </body>
+</html>

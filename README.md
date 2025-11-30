@@ -1,6 +1,6 @@
 # aos.js
 
-![NPM License](https://img.shields.io/npm/l/%40reimujs%2Faos) ![NPM Version](https://img.shields.io/npm/v/%40reimujs%2Faos) ![npm bundle size](https://img.shields.io/bundlephobia/min/%40reimujs%2Faos)
+![NPM License](https://img.shields.io/npm/l/%40reimujs%2Faos) ![NPM Version](https://img.shields.io/npm/v/%40reimujs%2Faos) ![npm bundle size](https://img.shields.io/bundlephobia/min/%40reimujs%2Faos) [![Coverage Status](https://coveralls.io/repos/github/D-Sketon/aos.js/badge.svg?branch=main)](https://coveralls.io/github/D-Sketon/aos.js?branch=main)
 
 Animate on scroll library.
 
