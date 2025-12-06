@@ -1,21 +1,27 @@
 import getInlineOption from "./getInlineOption";
 import { getElementHeight } from "./container";
 
-const getOffset = function (el: HTMLElement, container: Window | Element) {
-  // let left = 0;
+const getOffsetTop = function (el: HTMLElement, container: Window | Element) {
   let top = 0;
 
   while (el) {
-    // left += el.offsetLeft - (el.tagName != "BODY" ? el.scrollLeft : 0);
     top += el.offsetTop - (el.tagName != "BODY" ? el.scrollTop : 0);
     el =
       el.offsetParent === container ? null : (el.offsetParent as HTMLElement);
   }
 
-  return {
-    top,
-    // left,
-  };
+  return top;
+};
+
+const getAnchor = (el: HTMLElement, container: Window | Element) => {
+  const anchor = getInlineOption(el, "anchor");
+  if (anchor) {
+    const queryResult = (
+      (container === window ? document : container) as HTMLElement
+    ).querySelector(anchor);
+    if (queryResult) return queryResult as HTMLElement;
+  }
+  return el;
 };
 
 export const getPositionIn = (
@@ -25,23 +31,14 @@ export const getPositionIn = (
   container: Window | Element
 ) => {
   const containerHeight = getElementHeight(container);
-  const anchor = getInlineOption(el, "anchor");
   const inlineAnchorPlacement = getInlineOption(el, "anchor-placement");
   const additionalOffset = Number(
     getInlineOption(el, "offset", inlineAnchorPlacement ? 0 : defaultOffset)
   );
   const anchorPlacement = inlineAnchorPlacement || defaultAnchorPlacement;
 
-  let finalEl = el;
-
-  if (anchor) {
-    const queryResult = (
-      (container === window ? document : container) as HTMLElement
-    ).querySelector(anchor);
-    if (queryResult) finalEl = queryResult;
-  }
-
-  let triggerPoint = getOffset(finalEl, container).top - containerHeight;
+  const finalEl = getAnchor(el, container);
+  let triggerPoint = getOffsetTop(finalEl, container) - containerHeight;
 
   const [elementPart, viewportPart] = anchorPlacement.split("-");
 
@@ -65,18 +62,9 @@ export const getPositionOut = (
   defaultOffset: number,
   container: Window | Element
 ) => {
-  const anchor = getInlineOption(el, "anchor");
   const additionalOffset = getInlineOption(el, "offset", defaultOffset);
-  let finalEl = el;
-
-  if (anchor) {
-    const queryResult = (
-      (container === window ? document : container) as HTMLElement
-    ).querySelector(anchor);
-    if (queryResult) finalEl = queryResult;
-  }
-
-  const elementOffsetTop = getOffset(finalEl, container).top;
-
-  return elementOffsetTop + finalEl.offsetHeight - additionalOffset;
+  const finalEl = getAnchor(el, container);
+  return (
+    getOffsetTop(finalEl, container) + finalEl.offsetHeight - additionalOffset
+  );
 };

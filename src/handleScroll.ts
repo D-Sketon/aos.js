@@ -1,10 +1,10 @@
 import type { ElementNode } from ".";
 import { getElementOffset } from "./container";
 
-const fireEvent = (eventName: string, data: any) =>
+const fireEvent = (eventName: string, detail: any) =>
   document.dispatchEvent(
     new CustomEvent(eventName, {
-      detail: data,
+      detail,
     })
   );
 
