@@ -2,64 +2,46 @@
 
 ![NPM License](https://img.shields.io/npm/l/%40reimujs%2Faos) ![NPM Version](https://img.shields.io/npm/v/%40reimujs%2Faos) ![npm bundle size](https://img.shields.io/bundlephobia/min/%40reimujs%2Faos) [![Coverage Status](https://coveralls.io/repos/github/D-Sketon/aos.js/badge.svg?branch=main)](https://coveralls.io/github/D-Sketon/aos.js?branch=main)
 
-Animate on scroll library.
+Animate on scroll library. A modern TypeScript rewrite of [michalsnik/aos](https://github.com/michalsnik/aos).
 
-Rewrite [aos](https://github.com/michalsnik/aos) using typescript.
+## Features
+
+- Full TypeScript support with type definitions
+- Smaller bundle size: 5.7KB + 23.3KB (vs 14.7KB + 26.1KB)
+- Modern browser optimizations
+- Custom scrollable container support
+- Enhanced API with `destroy()` method
+- Compatible with React, Vue, Angular, Astro, and more
 
 ## Installation
 
 ```bash
-npm install @reimujs/aos --save
+npm install @reimujs/aos
 ```
 
-or
+CDN:
 
 ```html
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@reimujs/aos/dist/aos.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@reimujs/aos/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/@reimujs/aos/dist/aos.umd.js"></script>
 ```
 
-## Difference
-
-So what's the difference between aos and @reimujs/aos?
-
-- Typescript friendly
-- Smaller package size (from 14.7KB + 26.1KB to 6.15KB + 23.3KB)
-- Only support modern browsers
-- Support additional settings
-- Support additional API
-
-### Additional settings
-
-#### container
-
-merge from [aos#223](https://github.com/michalsnik/aos/issues/223), you can set the container of AOS, accepts CSS Selector (e.g. ".my-awesome-container") or HTMLElement.
-
-```typescript
-container: window, // AOS Container, accepts CSS Selector (e.g. ".my-awesome-container") or HTMLElement
-```
-
-### Additional API
-
-#### AOS.destroy()
-
-```typescript
-function destroy(): void;
-```
-
-Remove all event listeners and disconnect MutationObserver.
-
 ## Usage
-
-Just same as aos@next. For more information, please visit [aos-how-to-use-it](https://github.com/michalsnik/aos?tab=readme-ov-file#-how-to-use-it).
 
 ```typescript
 import AOS from "@reimujs/aos";
 import "@reimujs/aos/dist/aos.css";
 
+AOS.init();
+```
+
+```html
+<div data-aos="fade-up">Animate on scroll</div>
+```
+
+## Configuration
+
+```typescript
 AOS.init({
   // Global settings:
   disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -85,6 +67,38 @@ AOS.init({
 });
 ```
 
+## Animations
+
+Available animation types:
+- **Fade**: `fade`, `fade-up`, `fade-down`, `fade-left`, `fade-right`, `fade-up-right`, `fade-up-left`, `fade-down-right`, `fade-down-left`
+- **Flip**: `flip-up`, `flip-down`, `flip-left`, `flip-right`
+- **Slide**: `slide-up`, `slide-down`, `slide-left`, `slide-right`
+- **Zoom**: `zoom-in`, `zoom-in-up`, `zoom-in-down`, `zoom-in-left`, `zoom-in-right`, `zoom-out`, `zoom-out-up`, `zoom-out-down`, `zoom-out-left`, `zoom-out-right`
+
+Available easing functions:
+- `linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`
+- `ease-in-back`, `ease-out-back`, `ease-in-out-back`
+- `ease-in-sine`, `ease-out-sine`, `ease-in-out-sine`
+- `ease-in-quad`, `ease-out-quad`, `ease-in-out-quad`
+- `ease-in-cubic`, `ease-out-cubic`, `ease-in-out-cubic`
+- `ease-in-quart`, `ease-out-quart`, `ease-in-out-quart`
+
+## API
+
+### `AOS.init(options?)`
+Initialize AOS with optional configuration.
+
+### `AOS.refresh()`
+Recalculate element positions after dynamic content changes.
+
+### `AOS.refreshHard()`
+Force complete reinitialization.
+
+### `AOS.destroy()`
+Remove all event listeners and observers.
+
+## Framework Examples
+
 ### Next.js
 
 ```typescript
@@ -101,9 +115,9 @@ export default function Page() {
 }
 ```
 
-### Nuxt
+### Vue / Nuxt
 
-```html
+```vue
 <script lang="ts" setup>
 import { onMounted } from "vue";
 import "@reimujs/aos/dist/aos.css";
@@ -116,7 +130,7 @@ onMounted(() => {
 </script>
 ```
 
-### Augular
+### Angular
 
 ```typescript
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
@@ -125,9 +139,7 @@ import '@reimujs/aos/dist/aos.css';
 
 @Component({})
 export class AppComponent {
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
       import("@reimujs/aos").then(({ default: AOS }) => {
         AOS.init();
@@ -139,10 +151,11 @@ export class AppComponent {
 
 ### Astro
 
-```html
+```astro
 ---
 import "@reimujs/aos/dist/aos.css";
 ---
+
 <script>
   import AOS from "@reimujs/aos";
   AOS.init();
@@ -150,5 +163,5 @@ import "@reimujs/aos/dist/aos.css";
 ```
 
 ## License
-
+ 
 MIT
