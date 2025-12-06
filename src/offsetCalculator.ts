@@ -2,11 +2,11 @@ import getInlineOption from "./getInlineOption";
 import { getElementHeight } from "./container";
 
 const getOffset = function (el: HTMLElement, container: Window | Element) {
-  let left = 0;
+  // let left = 0;
   let top = 0;
 
   while (el) {
-    left += el.offsetLeft - (el.tagName != "BODY" ? el.scrollLeft : 0);
+    // left += el.offsetLeft - (el.tagName != "BODY" ? el.scrollLeft : 0);
     top += el.offsetTop - (el.tagName != "BODY" ? el.scrollTop : 0);
     el =
       el.offsetParent === container ? null : (el.offsetParent as HTMLElement);
@@ -14,7 +14,7 @@ const getOffset = function (el: HTMLElement, container: Window | Element) {
 
   return {
     top,
-    left,
+    // left,
   };
 };
 
