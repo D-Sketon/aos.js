@@ -3,6 +3,12 @@ import terser from "@rollup/plugin-terser";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import scss from "rollup-plugin-scss";
 
+const terserOptions = {
+  compress: {
+    passes: 3,
+  }
+};
+
 export default [
   {
     input: "./src/index.ts",
@@ -25,7 +31,7 @@ export default [
         entryFileNames: "aos.umd.js",
         name: "AOS",
         sourcemap: false,
-        plugins: [terser()],
+        plugins: [terser(terserOptions)],
       },
     ],
     plugins: [nodeResolve(), typescript({ module: "ESNext" })],
