@@ -3,9 +3,7 @@ export function debounce(func: (...args: any[]) => void, delay: number) {
 
   return (...args: any[]) => {
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(this, args);
-    }, delay);
+    timeoutId = setTimeout(() => func(...args), delay);
   };
 }
 
@@ -13,16 +11,16 @@ export function throttle(func: (...args: any[]) => void, limit: number) {
   let lastFunc: number | undefined, lastRan: number;
 
   return (...args: any[]) => {
-    const context = this;
-    if (!lastRan || Date.now() - lastRan >= limit) {
-      func.apply(context, args);
-      lastRan = Date.now();
+    const now = Date.now();
+    if (!lastRan || now - lastRan >= limit) {
+      func(...args);
+      lastRan = now;
     } else {
       clearTimeout(lastFunc);
       lastFunc = setTimeout(() => {
-        func.apply(context, args);
+        func(...args);
         lastRan = Date.now();
-      }, limit - (Date.now() - lastRan));
+      }, limit - (now - lastRan));
     }
   };
 }

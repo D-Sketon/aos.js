@@ -137,7 +137,7 @@ class Aos {
       (optionDisable === "mobile" && detect.mobile()) ||
       (optionDisable === "phone" && detect.phone()) ||
       (optionDisable === "tablet" && detect.tablet()) ||
-      (typeof optionDisable === "function" && optionDisable() === true)
+      (typeof optionDisable === "function" && optionDisable())
     );
   }
 

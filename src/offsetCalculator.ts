@@ -43,34 +43,18 @@ export const getPositionIn = (
 
   let triggerPoint = getOffset(finalEl, container).top - containerHeight;
 
-  switch (anchorPlacement) {
-    case "top-bottom":
-      // Default offset
-      break;
-    case "center-bottom":
-      triggerPoint += finalEl.offsetHeight / 2;
-      break;
-    case "bottom-bottom":
-      triggerPoint += finalEl.offsetHeight;
-      break;
-    case "top-center":
-      triggerPoint += containerHeight / 2;
-      break;
-    case "center-center":
-      triggerPoint += containerHeight / 2 + finalEl.offsetHeight / 2;
-      break;
-    case "bottom-center":
-      triggerPoint += containerHeight / 2 + finalEl.offsetHeight;
-      break;
-    case "top-top":
-      triggerPoint += containerHeight;
-      break;
-    case "bottom-top":
-      triggerPoint += containerHeight + finalEl.offsetHeight;
-      break;
-    case "center-top":
-      triggerPoint += containerHeight + finalEl.offsetHeight / 2;
-      break;
+  const [elementPart, viewportPart] = anchorPlacement.split("-");
+
+  if (viewportPart === "center") {
+    triggerPoint += containerHeight / 2;
+  } else if (viewportPart === "top") {
+    triggerPoint += containerHeight;
+  }
+
+  if (elementPart === "center") {
+    triggerPoint += finalEl.offsetHeight / 2;
+  } else if (elementPart === "bottom") {
+    triggerPoint += finalEl.offsetHeight;
   }
 
   return triggerPoint + additionalOffset;
