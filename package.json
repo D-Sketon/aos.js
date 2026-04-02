@@ -29,7 +29,7 @@
   "description": "Animate on scroll library",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-terser": "^1.0.0",
     "@rollup/plugin-typescript": "^12.3.0",
     "@vitest/coverage-v8": "^4.0.14",
     "jsdom": "^27.2.0",
